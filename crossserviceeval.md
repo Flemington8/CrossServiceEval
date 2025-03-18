@@ -172,6 +172,48 @@ We can adapt their insight to create a benchmark for microservices, focusing on 
 
 - **Code/Configuration Completion:**  
   Provide snippets of code/configuration files with missing parts (e.g., a service definition without its dependencies) and ask models to complete them. For deeper implementation of configuration completion, refer [Appendix](#appendix-adapting-crosscodeeval-for-microservices-in-configuration-files).
+
+  For example, in the `e-commerce-microservices-sample`, the original code snippet in `users-cna-microservice/app.py`:
+  ```python
+  if __name__ == '__main__':
+    uvicorn.run("app:app", port=9090, host='127.0.0.1', reload=True)
+  ```
+  can be masked to:
+  ```python
+  if __name__ == '__main__':
+    uvicorn.run[CURSOR_POSITION]
+  ```
+  The model should be able to fill in the missing part with the correct port and host information, which is defined in `infra/k8s/apps/base/users/service.yaml`:
+  ```yaml
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: users-service
+    spec:
+      ports:
+      - name: http
+        port: 9090
+      selector:
+        app: users-deployment
+  ```
+  Similarly, we can mask the `port` and `host` in the `users-cna-microservice/Dockerfile` of the `users-cna-microservice`:
+  ```dockerfile
+    # Install python in the container
+    FROM python:3.10.5-alpine3.16
+    RUN pip install pipenv
+    WORKDIR /usr/src/app
+    # Copy the Pipfile
+    COPY Pipfile ./
+    # install the packages from the requirements.txt file in the container
+    RUN pipenv install
+    # expose the port that uvicorn will run the app
+    [CURSOR_POSITION]
+    # copy the local app/ folder to the /app fodler in the container
+    COPY . .
+    # execute the command python main.py (in the WORKDIR) to start the app
+    CMD ["pipenv", "run", "python", "app.py"]
+  ```
+
 - **Question Answering:**  
   Pose questions such as “Which services depend on the payment service?” and provide ground truth answers.
 - **Architecture Summarization:**  
