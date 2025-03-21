@@ -1,0 +1,3 @@
+[submodule "MicroDepGraph"]
+	path = MicroDepGraph
+	url = https://github.com/Flemington8/MicroDepGraph
