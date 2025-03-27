@@ -165,19 +165,6 @@ cython_debug/
 # User-specific stuff
 temp/
 .DS_Store
-
-# LaTeX files
-*.aux
-*.bbl
-*.blg
-*.dvi
-*.fdb_latexmk
-*.fls
-*.idx
-*.ilg
-*.ind
-*.log
-*.out
-*.xdv
+docs/
 
 
