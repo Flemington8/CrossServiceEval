@@ -2,10 +2,14 @@
 	path = MicroDepGraph
 	url = https://github.com/Flemington8/MicroDepGraph
 
-[submodule "aiopslab-applications"]
-	path = aiopslab-applications
+[submodule "microservices/aiopslab-applications"]
+	path = microservices/aiopslab-applications
 	url = https://github.com/Flemington8/aiopslab-applications
 
-[submodule "microservices-demo"]
-	path = microservices-demo
+[submodule "microservices/microservices-demo"]
+	path = microservices/microservices-demo
 	url = https://github.com/Flemington8/microservices-demo.git
+
+[submodule "microservices/ftgo-application"]
+	path = microservices/ftgo-application
+	url = https://github.com/Flemington8/ftgo-application.git
