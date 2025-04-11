@@ -13,3 +13,7 @@
 [submodule "microservices/ftgo-application"]
 	path = microservices/ftgo-application
 	url = https://github.com/Flemington8/ftgo-application.git
+
+[submodule "microservices/microservices-reference-implementation"]
+	path = microservices/microservices-reference-implementation
+	url = https://github.com/Flemington8/microservices-reference-implementation.git
