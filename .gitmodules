@@ -17,3 +17,7 @@
 [submodule "microservices/microservices-reference-implementation"]
 	path = microservices/microservices-reference-implementation
 	url = https://github.com/Flemington8/microservices-reference-implementation.git
+
+[submodule "microservices/LakesideMutual"]
+	path = microservices/LakesideMutual
+	url = https://github.com/Flemington8/LakesideMutual.git
